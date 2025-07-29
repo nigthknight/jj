@@ -2,7 +2,7 @@
 
 # Jujutsu—a version control system
 
-dummy change two
+dummy change two arg
 
 <p><img title="jj logo" src="docs/images/jj-logo.svg" width="320" height="320"></p>
 
