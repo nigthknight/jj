@@ -401,7 +401,9 @@ fn write_to_store(
     mut commit: backend::Commit,
     sign_settings: &SignSettings,
 ) -> BackendResult<Commit> {
-    let should_sign = store.signer().can_sign() && sign_settings.should_sign(&commit);
+    let can_singn = store.signer().can_sign();
+    let should_sign = sign_settings.should_sign(&commit);
+    let should_sign = should_sign && can_singn;
     let sign_fn = |data: &[u8]| store.signer().sign(data, sign_settings.key.as_deref());
 
     // Commit backend doesn't use secure_sig for writing and enforces it with an
